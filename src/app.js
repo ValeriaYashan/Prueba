@@ -13,6 +13,9 @@ app.use('/cienciasnaturales', routesCienciasnaturales);
 const routesEconomia = require("./routes/economia.js");
 app.use('/economia', routesEconomia);
 
+/*const userRoutes = require('./routes/userRoutes.js');
+app.use('/user', userRoutes);*/
+
 const publicPath = path.resolve(__dirname, '../public');
 app.use('/', express.static(publicPath));
 
