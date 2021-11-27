@@ -1,15 +1,15 @@
-/*const bcryptjs = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 const {
 	validationResult
 } = require('express-validator');
 
-/*const User = require('../models/User');
+const User = require('../models/User');
 
 const controller = {
 	register: (req, res) => {
 		return res.render('userRegisterForm');
 	},
-	/*processRegister: (req, res) => {
+	processRegister: (req, res) => {
 		const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
@@ -32,7 +32,7 @@ const controller = {
 			});
 		}
 
-		/*let userToCreate = {
+		let userToCreate = {
 			...req.body,
 			password: bcryptjs.hashSync(req.body.password, 10),
 			avatar: req.file.filename
@@ -45,39 +45,39 @@ const controller = {
 	login: (req, res) => {
 		return res.render('userLoginForm');
 	},
-	/*loginProcess: (req, res) => {
-		let userToLogin = User.findByField('email', req.body.email);*/
+	loginProcess: (req, res) => {
+		let userToLogin = User.findByField('email', req.body.email);
 		
-		/*if(userToLogin) {
+		if(userToLogin) {
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {
 				delete userToLogin.password;
-				req.session.userLogged = userToLogin;*/
+				req.session.userLogged = userToLogin;
 
-				/*if(req.body.remember_user) {
+				if(req.body.remember_user) {
 					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
 
 				return res.redirect('/user/profile');
-			} */
-			/*return res.render('userLoginForm', {
+			} 
+			return res.render('userLoginForm', {
 				errors: {
 					email: {
 						msg: 'Las credenciales son inválidas'
 					}
 				}
 			});
-		}/*
+		}
 
-		/*return res.render('userLoginForm', {
+		return res.render('userLoginForm', {
 			errors: {
 				email: {
 					msg: 'No se encuentra este email en nuestra base de datos'
 				}
 			}
 		});
-	},*/
-	/*profile: (req, res) => {
+	},
+	profile: (req, res) => {
 		return res.render('userProfile', {
 			user: req.session.userLogged
 		});
@@ -88,7 +88,7 @@ const controller = {
 		req.session.destroy();
 		return res.redirect('/');
 	}
-}*/
+}
 let userController= {
     UserLoginForm: function(req, res) {
  
